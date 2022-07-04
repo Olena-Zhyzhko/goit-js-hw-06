@@ -1,16 +1,14 @@
 const inputEl = document.querySelector('#validation-input');
 
-console.log(inputEl.value);
+inputEl.addEventListener('blur', (event) => {
+    const simbols = inputEl.value.split("").length;
+    console.log(simbols === inputEl.dataset.length);
 
-
-inputEl.addEventListener('input', (event) => {
-    inputEl.addEventListener('blur', (event) => {
-        const simbols = inputEl.value.split("").length;
-        console.log(simbols);
-        
-        if (simbols === 6) {
-        inputEl.classList.add("valid");
-    } else { inputEl.classList.add("invalid");}
-})
+    if (simbols === Number(inputEl.dataset.length)) {
+        inputEl.classList.toggle("valid");
+        inputEl.classList.remove("invalid")
+    } else {
+        inputEl.classList.toggle("invalid");
+        inputEl.classList.remove("valid");}
 })
 
