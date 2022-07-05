@@ -5,6 +5,9 @@ inputEl.addEventListener('blur', (event) => {
     console.log(simbols === inputEl.dataset.length);
     
     if (simbols === Number(inputEl.dataset.length)) {
+        if (inputEl.classList.contains("valid")) {
+            inputEl.classList.remove("valid");
+        }
         inputEl.classList.toggle("valid"); 
         inputEl.classList.remove("invalid");
     } else {
